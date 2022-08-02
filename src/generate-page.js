@@ -16,12 +16,7 @@ const employeeCards = teamArr => {
     };
 
     return stringArr.join('');
-}
-// iterate through array creating a card for each employee
-teamArr
-
-// generate HTML for each card
-// use object methods to fill in template literal information
+};
 
 const roleInfo = employee => {
     if (employee.getRole() === 'Manager') {

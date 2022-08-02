@@ -8,7 +8,7 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 
 // load HTML generator file
-const generatePage = require('./src/generate-page');
+const generateHTML = require('./src/generate-page');
 
 // load functions from file-functions.js
 const { copyStyle, writeHTML } = require('./src/file-functions');
@@ -339,7 +339,17 @@ const promptNewTeamMember = teamData => {
 promptManager()
     .then(promptNewTeamMember)
     .then(teamData => {
-        return generatepage(teamData);
+        return generateHTML(teamData);
+    })
+    .then(generatedHTML => {
+        return writeHTML(generatedHTML);
+    })
+    .then(writeHTMLResponse => {
+        console.log(writeHTMLResponse);
+        return copyStyle();
+    })
+    .then(copyStyleResponse => {
+        console.log(copyStyleResponse);
     })
     .catch(err => {
         console.log(err);
