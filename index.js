@@ -277,18 +277,23 @@ const promptNewTeamMember = teamData => {
         Adding new ${teamData.subordinates[teamData.subordinates.length - 1].nextStep}...
         `);
 
+        // get employee role for next step
         newEmployee = teamData.subordinates[teamData.subordinates.length - 1].nextStep;
     };
 
     if (newEmployee === 'engineer') {
+        // if the new employee is an engineer, prompt for engineer
         return inquirer
             .prompt(engineerQuestions)
+            // add the employee data to team data object
             .then(engineerData => {
                 teamData.subordinates.push(engineerData);
-                console.log(teamData);
+                return teamData;
             })
             .then(teamData => {
                 // get user selection for next step
+                console.log(teamData);
+                console.log(teamData.subordinates);
                 let nextStep = teamData.subordinates[teamData.subordinates.length - 1].nextStep;
         
                 if (nextStep === 'finish') {
@@ -303,13 +308,17 @@ const promptNewTeamMember = teamData => {
                 console.log(err);
             })
     } else {
+        // if the new employee is an intern, prompt for intern
         return inquirer
             .prompt(internQuestions)
+            // add intern info to team data object
             .then(internData => {
                 teamData.subordinates.push(internData);
-                console.log(teamData);
+                return teamData;
             })
             .then(teamData => {
+                console.log(teamData);
+                console.log(teamData.subordinates);
                 // get user selection for next step
                 var nextStep = teamData.subordinates[teamData.subordinates.length - 1].nextStep;
         
@@ -326,14 +335,6 @@ const promptNewTeamMember = teamData => {
             });
     };
 };
-
-// const promptEngineer = teamData => {
-
-// };
-
-// const promptIntern = teamData => {
-
-// };
 
 promptManager()
     .then(promptNewTeamMember)
