@@ -4,24 +4,54 @@ const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 
 // generate employee cards
-const employeeCards = team => {
+const employeeCards = teamArr => {
+    // create array for concatenating string
+    let stringArr = [];
 
+    for (i = 0; i < teamArr.length; i++) {
+        let htmlString = generateCard(teamArr[i]);
+
+        // add generated HTML card to string array
+        stringArr.push(htmlString);
+    };
+
+    return stringArr.join('');
+}
+// iterate through array creating a card for each employee
+teamArr
+
+// generate HTML for each card
+// use object methods to fill in template literal information
+
+const roleInfo = employee => {
+    if (employee.getRole() === 'Manager') {
+        // if the employee is a manager, show office number
+        return `Office number: ${employee.getOffice()}`;
+    } else if (employee.getRole() === 'Engineer') {
+        // if the employee is an engineer, show github link
+        return `GitHub: <a href="https://github.com/${employee.getGithub}" target="_blank">${employee.getGithub}</a>`;
+    } else {
+        // if the employee is an intern, show school
+        return `School: ${employee.getSchool()}`;
+    };
 };
 
-// <div class="col-12 col-sm-6 col-md-4">
-// <div class="employee card">
-// <div class="card-header">
-//     <h3>${name}</h3>
-//     <h4>${role}</h4>
-// </div>
-// <ul class="list-group list-group-flush">
-//     <li class="list-group-item">ID: ${id}</li>
-//     <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-//     <li class="list-group-item">GitHub: <a href="https://github.com/${github}">${github}</a></li>
-// </ul>
-// </div>
-// </div>
-
+const generateCard = employee => {
+    return `
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="employee card">
+            <div class="card-header">
+                <h3>${employee.getName()}</h3>
+                <h4>${employee.getRole()}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${employee.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+                <li class="list-group-item">${roleInfo(employee)}</li>
+            </ul>
+        </div>
+    </div> `
+};
 
 // create the HTML page for export
 generateHTML = teamData => {
@@ -60,7 +90,6 @@ generateHTML = teamData => {
         team.push(intern);
     });
 
-
     // create HTML output    
     return `
     <!DOCTYPE html>
@@ -79,8 +108,7 @@ generateHTML = teamData => {
             <h1>My Team</h1>
         </header>
         <main class="container">
-            <div class="row">
-                ${employeeCards(team)}
+            <div class="row">${employeeCards(team)}
             </div>
         </main>
     </body>

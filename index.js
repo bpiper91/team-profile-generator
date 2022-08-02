@@ -339,9 +339,7 @@ const promptNewTeamMember = teamData => {
 promptManager()
     .then(promptNewTeamMember)
     .then(teamData => {
-        //return generatepage(teamData);
-        console.log('finished promptNewTeamMember');
-        console.log(teamData);
+        return generatepage(teamData);
     })
     .catch(err => {
         console.log(err);
