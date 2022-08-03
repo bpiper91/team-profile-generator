@@ -24,7 +24,7 @@ const roleInfo = employee => {
         return `Office number: ${employee.getOffice()}`;
     } else if (employee.getRole() === 'Engineer') {
         // if the employee is an engineer, show github link
-        return `GitHub: <a href="https://github.com/${employee.getGithub}" target="_blank">${employee.getGithub}</a>`;
+        return `GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;
     } else {
         // if the employee is an intern, show school
         return `School: ${employee.getSchool()}`;
@@ -36,8 +36,8 @@ const generateCard = employee => {
     <div class="col-12 col-sm-6 col-md-4">
         <div class="employee card">
             <div class="card-header">
-                <h3>${employee.getName()}</h3>
-                <h4>${employee.getRole()}</h4>
+                <h2>${employee.getName()}</h2>
+                <h3>${employee.getRole()}</h3>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${employee.getId()}</li>
@@ -95,6 +95,7 @@ generateHTML = teamData => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Team</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
   
