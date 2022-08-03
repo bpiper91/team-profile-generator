@@ -14,7 +14,7 @@ A video walkthrough will be added soon.
 
 ## Testing
 
-The application includes four test files for the class objects. You'll need to run `npm install jest` to install the node module Jest, then run `npm run test` to initiate the tests.
+The application includes four test files for the class objects. If you haven't yet, you'll need to run `npm install` to install the dependencies (including Jest, which is used for testing), then run `npm run test` to initiate the tests.
 
 ## Contact
 
