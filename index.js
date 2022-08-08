@@ -1,19 +1,21 @@
+// LOAD NODE PACKAGES AND SOURCE FILES
 // link to class files
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-// load inquirer module for user input
+// load inquirer package for user input
 const inquirer = require('inquirer');
 
 // load HTML generator file
 const generateHTML = require('./src/generate-page');
 
-// load functions from file-functions.js
+// load file system functions for use with promises
 const { copyStyle, writeHTML } = require('./src/file-functions');
 
-// questions for inquirer prompts
+// INQUIRER PROMPT QUESTIONS
+// manager prompt
 const managerQuestions = [
     {
         message: "What is the manager's name?",
@@ -88,6 +90,7 @@ const managerQuestions = [
     },
 ];
 
+// engineer prompt
 const engineerQuestions = [
     {
         message: "What is the engineer's name?",
@@ -162,6 +165,7 @@ const engineerQuestions = [
     },
 ];
 
+// intern prompt
 const internQuestions = [
     {
         message: "What is the intern's name?",
@@ -236,6 +240,7 @@ const internQuestions = [
     },
 ];
 
+// APPLICATION FUNCTIONS
 // start the app by getting manager info from user
 const promptManager = () => {
     return inquirer.prompt(managerQuestions)
@@ -336,6 +341,7 @@ const promptNewTeamMember = teamData => {
     };
 };
 
+// INITIALIZE APPLICATION
 promptManager()
     .then(promptNewTeamMember)
     .then(teamData => {
@@ -353,4 +359,4 @@ promptManager()
     })
     .catch(err => {
         console.log(err);
-    })
+    });
