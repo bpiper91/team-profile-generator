@@ -263,8 +263,6 @@ const promptNewTeamMember = teamData => {
         teamData.subordinates = [];
     };
 
-    console.log(teamData);
-
     var newEmployee;
 
     // determine what user is adding
