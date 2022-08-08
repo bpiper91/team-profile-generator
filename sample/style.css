@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  color: #333333;
+  line-height: 1.2;
+  font-size: 1.9rem;
+}
+
+body a {
+  color: blue;
+  text-decoration: none;
+}
+
+body a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+header {
+  background-color: darkblue;
+  color: white;
+  margin: 0;
+  padding: 12px 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.7rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  margin-top: 10px;
+}
+
+.employee {
+  margin: 10px auto;
+}
+
+.card-header {
+  background-color: #444444;
+  color: white;
+  padding: 5px 15px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card ul li:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.card ul li:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card ul li {
+  border-color: #444444;
+}
