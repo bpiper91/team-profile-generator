@@ -243,7 +243,7 @@ const internQuestions = [
 // APPLICATION FUNCTIONS
 // start the app by getting manager info from user
 const promptManager = () => {
-    console.log(`TEAM PROFILE GENERATOR\n----------------------`)
+    console.log(`\nTEAM PROFILE GENERATOR\n----------------------`)
     return inquirer.prompt(managerQuestions)
 };
 

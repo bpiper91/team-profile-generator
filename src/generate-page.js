@@ -58,32 +58,34 @@ generateHTML = teamData => {
     team.push(manager);
 
     // create subordinate objects
-    // create array of engineers
-    engineerList = teamData.subordinates.filter(object => {
-        if (object.github) {
-            return true;
-        } else {
-            return false;
-        };
-    });
-    // create objects for each engineer and push to team array
-    engineerList.map(object => {
-        const engineer = new Engineer(object.name, object.id, object.email, object.github)
-        team.push(engineer);
-    });
-    // create array of interns
-    internList = teamData.subordinates.filter(object => {
-        if (object.school) {
-            return true;
-        } else {
-            return false;
-        };
-    });
-    // create objects for each intern
-    internList.map(object => {
-        const intern = new Intern(object.name, object.id, object.email, object.school)
-        team.push(intern);
-    });
+    if (teamData.subordinates) {
+        // create array of engineers
+        engineerList = teamData.subordinates.filter(object => {
+            if (object.github) {
+                return true;
+            } else {
+                return false;
+            };
+        });
+        // create objects for each engineer and push to team array
+        engineerList.map(object => {
+            const engineer = new Engineer(object.name, object.id, object.email, object.github)
+            team.push(engineer);
+        });
+        // create array of interns
+        internList = teamData.subordinates.filter(object => {
+            if (object.school) {
+                return true;
+            } else {
+                return false;
+            };
+        });
+        // create objects for each intern
+        internList.map(object => {
+            const intern = new Intern(object.name, object.id, object.email, object.school)
+            team.push(intern);
+        });
+    };
 
     // create HTML output    
     return `
