@@ -243,6 +243,7 @@ const internQuestions = [
 // APPLICATION FUNCTIONS
 // start the app by getting manager info from user
 const promptManager = () => {
+    console.log(`TEAM PROFILE GENERATOR\n----------------------`)
     return inquirer.prompt(managerQuestions)
 };
 
@@ -297,8 +298,6 @@ const promptNewTeamMember = teamData => {
             })
             .then(teamData => {
                 // get user selection for next step
-                console.log(teamData);
-                console.log(teamData.subordinates);
                 let nextStep = teamData.subordinates[teamData.subordinates.length - 1].nextStep;
         
                 if (nextStep === 'finish') {
@@ -322,8 +321,6 @@ const promptNewTeamMember = teamData => {
                 return teamData;
             })
             .then(teamData => {
-                console.log(teamData);
-                console.log(teamData.subordinates);
                 // get user selection for next step
                 var nextStep = teamData.subordinates[teamData.subordinates.length - 1].nextStep;
         
@@ -351,11 +348,11 @@ promptManager()
         return writeHTML(generatedHTML);
     })
     .then(writeHTMLResponse => {
-        console.log(writeHTMLResponse);
+        console.log(writeHTMLResponse.message);
         return copyStyle();
     })
     .then(copyStyleResponse => {
-        console.log(copyStyleResponse);
+        console.log(copyStyleResponse.message);
     })
     .catch(err => {
         console.log(err);
