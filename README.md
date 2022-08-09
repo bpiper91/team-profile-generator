@@ -14,6 +14,8 @@ You'll be prompted for your team manager's information. You must enter informati
 
 [You can view a walkthrough demonstration here.](https://drive.google.com/file/d/1hBNA3AwtCWrhhK5Ka-tSUNg9in-btluJ/view)
 
+[The sample page generated in the walkthrough is visible here.](https://bpiper91.github.io/team-profile-generator/sample/)
+
 ## Testing
 
 The application includes four test files for the class objects. If you haven't yet, you'll need to run `npm install` to install the dependencies (including Jest, which is used for testing), then run `npm run test` to initiate the tests.
